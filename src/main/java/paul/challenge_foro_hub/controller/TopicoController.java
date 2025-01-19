@@ -35,4 +35,10 @@ public class TopicoController {
         var page = topicoRepository.findByStatusTrue(paginacion).map(DatosDetalladoTopico::new);
         return ResponseEntity.ok(page);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DatosDetalladoTopico>detallar(@PathVariable Long id) {
+        var topico = topicoRepository.getReferenceById(id);
+        return ResponseEntity.ok(new DatosDetalladoTopico(topico));
+    }
 }
