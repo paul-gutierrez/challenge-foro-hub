@@ -3,11 +3,10 @@ package paul.challenge_foro_hub.controller;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import paul.challenge_foro_hub.domain.topico.DatosDetalladoTopico;
 import paul.challenge_foro_hub.domain.topico.DatosRegistroTopico;
@@ -31,5 +30,9 @@ public class TopicoController {
         return ResponseEntity.created(uri).body(new DatosDetalladoTopico(topico));
     }
 
-
+    @GetMapping
+    public ResponseEntity<Page<DatosDetalladoTopico>>listar(Pageable paginacion) {
+        var page = topicoRepository.findByStatusTrue(paginacion).map(DatosDetalladoTopico::new);
+        return ResponseEntity.ok(page);
+    }
 }

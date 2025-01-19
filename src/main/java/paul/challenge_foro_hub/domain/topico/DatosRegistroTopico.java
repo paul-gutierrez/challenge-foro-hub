@@ -8,7 +8,6 @@ public record DatosRegistroTopico(
         @NotNull String titulo,
         @NotNull String mensaje,
         @NotNull LocalDateTime fechaDeCreacion,
-        @NotNull Boolean status,
         @NotNull String autor,
         @NotNull String curso
 ) {
