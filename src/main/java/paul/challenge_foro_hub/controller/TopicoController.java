@@ -39,7 +39,7 @@ public class TopicoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<DatosDetalladoTopico> detallar(@PathVariable Long id) {
-        var topico = topicoRepository.getReferenceById(id); // getReferenceByStatusTrue
+        var topico = topicoRepository.getReferenceById(id);
         return ResponseEntity.ok(new DatosDetalladoTopico(topico));
     }
 
@@ -52,5 +52,12 @@ public class TopicoController {
         return ResponseEntity.ok(new DatosDetalladoTopico(topico));
     }
 
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity eliminar(@PathVariable Long id) {
+        var topico = topicoRepository.getReferenceById(id);
+        topico.terminarTopico();
 
+        return ResponseEntity.noContent().build();
+    }
 }

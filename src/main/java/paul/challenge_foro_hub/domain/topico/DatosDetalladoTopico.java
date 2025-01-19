@@ -8,7 +8,7 @@ public record DatosDetalladoTopico(String titulo, String mensaje, LocalDateTime 
         this(topico.getTitulo(),
                 topico.getMensaje(),
                 topico.getFechaDeCreacion(),
-                topico.getStatus() ? "Pendiente" : "Resuelto",
+                topico.getStatus() ? "Pendiente" : "Concluido",
                 topico.getAutor(),
                 topico.getCurso());
     }

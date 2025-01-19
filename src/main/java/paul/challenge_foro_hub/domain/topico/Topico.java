@@ -93,4 +93,8 @@ public class Topico {
             this.curso = datosActualizarTopico.curso();
         }
     }
+
+    public void terminarTopico() {
+        this.status = false;
+    }
 }
