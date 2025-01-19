@@ -1,6 +1,7 @@
 package paul.challenge_foro_hub.domain.topico;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 
 import java.time.LocalDateTime;
 
@@ -71,4 +72,25 @@ public class Topico {
     }
 
 
+    public void actualizarInformacion(DatosActualizarTopico datosActualizarTopico) {
+        if (datosActualizarTopico.titulo() != null) {
+            this.titulo = datosActualizarTopico.titulo();
+        }
+
+        if (datosActualizarTopico.mensaje() != null) {
+            this.mensaje = datosActualizarTopico.mensaje();
+        }
+
+        if (datosActualizarTopico.fechaDeCreacion() != null) {
+            this.fechaDeCreacion = datosActualizarTopico.fechaDeCreacion();
+        }
+
+        if (datosActualizarTopico.autor() != null) {
+            this.autor = datosActualizarTopico.autor();
+        }
+
+        if (datosActualizarTopico.curso() != null) {
+            this.curso = datosActualizarTopico.curso();
+        }
+    }
 }
