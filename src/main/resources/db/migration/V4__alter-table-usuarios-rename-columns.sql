@@ -1,0 +1,3 @@
+ALTER TABLE usuarios
+CHANGE COLUMN login username VARCHAR(100) NOT NULL,
+CHANGE COLUMN clave password VARCHAR(300) NOT NULL;
