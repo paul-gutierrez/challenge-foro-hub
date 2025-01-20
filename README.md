@@ -10,6 +10,7 @@ This project is a stateless RESTful API for managing forum topics ("topicos"). I
 - Configurable database connection.
 - Passwords stored in the database are encrypted using Bcrypt.
 - Flyway for database versioning and migrations.
+- API documentation available through SpringDoc with Swagger.
 
 ## Requirements
 - Java 17 or later.
@@ -101,11 +102,17 @@ This project is a stateless RESTful API for managing forum topics ("topicos"). I
 
 - **Delete Topic**: `DELETE /topicos/{id}`
 
+### API Documentation
+- **Swagger UI**: `GET /swagger-ui/index.html`
+- **API Docs**: `GET /v3/api-docs`
+  - These endpoints are publicly accessible and do not require authentication.
+
 ## Notes
 - Ensure to replace path variables (e.g., `{id}`) with actual values.
 - If you want to use a different database name, update the `spring.datasource.url` property.
 - Passwords in the database must be stored in Bcrypt encryption for the login functionality to work.
 - Flyway is used to manage all database changes through migrations.
+- API documentation is generated using SpringDoc and accessible via Swagger UI.
 - Error handling for invalid operations (e.g., accessing a non-existent topic) is managed by a dedicated error handler class.
 
 ## Dependencies
@@ -119,6 +126,7 @@ The project uses the following dependencies:
 - **Spring Boot Starter Validation**: For input validation.
 - **Spring Boot DevTools**: For development convenience (optional).
 - **Bcrypt (Spring Security)**: For secure password encryption and validation.
+- **SpringDoc with Swagger**: For friendly API documentation. 
 
 ## License
 This project is open-source and available under the MIT License.
