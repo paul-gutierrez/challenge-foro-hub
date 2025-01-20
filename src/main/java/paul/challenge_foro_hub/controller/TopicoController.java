@@ -1,5 +1,6 @@
 package paul.challenge_foro_hub.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import paul.challenge_foro_hub.repository.TopicoRepository;
 
 @RestController
 @RequestMapping("/topicos")
+@SecurityRequirement(name = "bearer-key")
 public class TopicoController {
 
     @Autowired
